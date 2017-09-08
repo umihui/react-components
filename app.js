@@ -1,12 +1,12 @@
 // TODO
 //
-var groceryItems = ['Cucumbers','Kale','Cat Food']
+var groceryItems = ['Cucumbers'];
 
 class GroceryListItem extends React.Component {
 
   constructor(props) {
     super(props);
-
+    console.log('this',props);
     this.state = {
       done : false
     };
@@ -24,18 +24,23 @@ class GroceryListItem extends React.Component {
     };
 
     return (
-      <li style={style} onClick={this.onListItemClick.bind(this)}>{this.props.item}</li>
+      <li onClick={this.onListItemClick.bind(this)} style={style}>{this.props.item}</li>
     );
   }
 
 }
-var GroceryList = (props) => (
-  <ul>
-    {props.items.map(item =>
-      <GroceryListItem item={item} />
-    )}
-  </ul>
-);
+var GroceryList = (props) => {
+
+  console.log(props);
+
+  return (
+    <ul>
+      {props.items.map(item =>
+        <GroceryListItem item={item} />
+      )}
+    </ul>
+  );
+};
 
 var App = () => (
   <div>
